@@ -1,0 +1,75 @@
+<toast></toast>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <div class="col-sm-12 col-xs-12 col-md-12 no-padding ">
+                <form class="navbar-form " role="search">
+                    <div class="input-group">
+                        <div class="input-group-btn">
+                            <select class="btn btn-default" ng-model="consola" ng-options="item.idconsola as item.nombre
+                             for
+                             item in consolas"></select>
+                        </div>
+                        <div class="input-group-btn">
+                            <a class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span
+                                    class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span> Generos</a>
+                            <ul style="text-align: left" class="dropdown-menu">
+                                <li style="margin-left: 5px" ng-repeat="x in generos"><input ng-model="x.isSelected"
+                                                                                             type="checkbox"/>{{
+                                    x.nombre }}
+                                </li>
+                            </ul>
+                        </div>
+                        <input ng-model="busqueda" type="text" class="form-control" placeholder="Search" name="q">
+                        <div class="input-group-btn">
+                            <button ng-click="buscar(busqueda,generos,consola)" class="btn btn-default" type="submit"><i
+                                    class="glyphicon glyphicon-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li ng-if="storage.usuario != null && storage.idtipo != 2"><a ui-sref="app.carrito"><span
+                        class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+                    Carrito</a></li>
+                <li ng-if="storage.usuario != null && storage.idtipo === 2">
+                    <a ui-sref="app.usuarios">Usuarios</a>
+                </li>
+                <li ng-if="storage.usuario != null && storage.idtipo === 2">
+                    <a href="" ng-click="nuevoItem()" ng-bind-html="text.nuevoItem" ng-cloak></a>
+                </li>
+                <li ng-if="storage.usuario === undefined || storage.usuario === null">
+                    <a href="" ng-click="registrarse()" ng-cloak>{{ text.register }}</a>
+                </li>
+                <li ng-if="storage.usuario === undefined || storage.usuario === null">
+                    <a href="" ng-click="iniciarSesion()" ng-cloak>{{ text.login }}</a>
+                </li>
+                <li ng-if="storage.usuario != null" class="dropdown">
+                    <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false" ng-cloak>{{ storage.usuario }}<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a ui-sref="app.cuenta">Ver Cuenta</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a ng-click="cerrarSesion()" href="">Cerrar Sesion</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

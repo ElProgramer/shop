@@ -1,0 +1,16 @@
+<div class="container">
+    <div ng-repeat="x in items" class="panel panel-default">
+        <div href="" ui-sref='app.item({item:x.iditem})' class="panel-body">
+            <div class="col-md-3">
+                <img style="width: 184px; height: 69px" class="img-responsive" src="{{x.imagen}}" alt="">
+            </div>
+            <div class="col-md-6">
+                <label>{{x.nombre}}</label><br><br>
+                <label> <span ng-repeat="y in x.generos_item">{{y.nombre}} </span></label>
+            </div>
+            <div class="col-md-3">
+                <label>${{x.precio}}</label>
+            </div>
+        </div>
+    </div>
+</div>

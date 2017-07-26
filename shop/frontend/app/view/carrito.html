@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="row">
+    <div  style="text-align: right" class="col-md-12 ">
+        <label for="check">  En la cuenta: ${{storage.dinero}}</label>
+    </div>
+    </div>
+    <div ng-repeat="x in items" class="panel panel-default">
+        <div class="panel-body">
+            <div class="col-md-3">
+                <img style="width: 184px; height: 69px" class="img-responsive" src="{{x.imagen}}" alt="">
+            </div>
+            <div class="col-md-6">
+                <label>{{x.nombre}}</label><br><br>
+                <label> <span ng-repeat="y in x.generos_item">{{y.nombre}} </span></label>
+            </div>
+            <div class="col-md-3">
+                <label>${{x.precio}}</label><br>
+                <button ng-click="removeCart(x.iditem)" style="margin-left: 10px" id="carrito2"
+                        class="btn btn-danger">Sacar del carrito
+                </button>
+            </div>
+        </div>
+    </div>
+    <div ng-if="precioTotal > 0" class="row">
+        <div  style="text-align: right" class="col-md-12 ">
+            <label for="check">  Total: ${{precioTotal}}</label>
+            <button ng-disabled="precioTotal > storage.dinero" ng-click="comprar()" style="margin-left: 10px" id="check" class="btn btn-success">Proceder con la compra</button>
+        </div>
+
+        </div>
+    <div ng-if="precioTotal === 0" class="row">
+        <div  style="text-align: center" class="col-md-12 ">
+            <label style="font-size: 24px">No tiene items en el carrito</label>
+        </div>
+
+    </div>
+    </div>

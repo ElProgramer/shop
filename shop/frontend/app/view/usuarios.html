@@ -1,0 +1,16 @@
+<div class="container">
+    <div ng-repeat="x in usuarios" class="panel panel-default">
+        <div class="panel-body">
+            <div class="col-md-3">
+                <label>Usuario: {{x.usuario}}</label><br>
+                <label>Nombre: {{x.nombre}}</label><br>
+                <label>Apellido: {{x.apellido}}</label>
+                <br>
+                <label>Correo: {{x.correo}}</label>
+            </div>
+            <div class="col-md-6">
+                <label>Items comprados: {{x.items.length}}</label>
+            </div>
+        </div>
+    </div>
+</div>

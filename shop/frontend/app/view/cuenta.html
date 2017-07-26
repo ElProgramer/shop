@@ -1,0 +1,18 @@
+<div class="container">
+    <div><label>Mis items</label></div>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div ng-repeat="x in items" class="panel panel-default">
+                <div class="panel-body">
+                    <div class="col-md-3">
+                        <img style="width: 184px; height: 69px" class="img-responsive" src="{{x.imagen}}" alt="">
+                    </div>
+                    <div class="col-md-6">
+                        <label>{{x.nombre}}</label><br><br>
+                        <label> <span ng-repeat="y in x.generos_item">{{y.nombre}} </span></label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
